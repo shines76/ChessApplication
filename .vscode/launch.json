@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Start Flask",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/ChessAPI/chess_api.py",
+            "console": "externalTerminal",
+            "justMyCode": true
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against live server",
+            "url": "http://127.0.0.1:5500/ChessWebApplication/index.html",
+            "webRoot": "${workspaceFolder}/ChessWebApplication"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Build and Launch ChessApplication",
+            "configurations": [
+                "Python: Start Flask",
+                "Launch Chrome against live server"
+            ]
+        }
+    ]
+}
