@@ -5,21 +5,9 @@ from flask_cors import CORS
 from flask import Flask, request, jsonify
 from game import Game
 
-
-class GameEncoder(json.JSONEncoder):
-    """JSON encoder for Game object"""
-
-    def default(self, obj):
-        if isinstance(obj, Game):
-            # Convert the Game object to a dictionary representation
-            return obj.get_serializable()
-        return json.JSONEncoder.default(self, obj)
-
-
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
 CORS(app)
-app.json_encoder = GameEncoder
 
 
 @app.route("/start", methods=["POST"])
@@ -33,20 +21,10 @@ def start_game():
 
     game = Game(team)
 
-    if game.board.turn:
-        turn = "white"
-    else:
-        turn = "black"
-
     data = {
         "message": "Hello from Chess API!",
-        "human-team": game.human.team,
-        "computer-team": game.computer.team,
-        "board": str(game.board),
-        "turn": turn,
-        "game-over": game.board.is_game_over(),
-        "result": game.board.result(),
-        "legal-moves": str(game.board.legal_moves),
+        "game": game.get_serializable(),
+        "boardString": str(game.board)
     }
 
     return jsonify(data)

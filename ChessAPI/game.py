@@ -55,9 +55,8 @@ class Game:
 
     def get_serializable(self):
         """Gets the session."""
-
-        session_dict = dict(self.__dict__)
-
-        session_dict["board"] = str(session_dict["board"])
-
+        session_dict = {}
+        session_dict["board"] = self.board.__dict__
+        session_dict["human"] = self.human.__dict__
+        session_dict["computer"] = self.computer.get_serializable()
         return session_dict

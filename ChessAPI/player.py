@@ -33,22 +33,28 @@ class Computer(Player):
     def __init__(self, team: str, path: str):
         """Initializes the computer player."""
         super().__init__(team)
-        self.engine = self.init_engine(path)
+        self.__engine = self.__init_engine(path)
 
-    def init_engine(self, path: str):
+    def __init_engine(self, path: str):
         """Initializes the chess engine."""
 
         engine = chess.engine.SimpleEngine.popen_uci(path)
         engine.configure({"Skill Level": 1})
         return engine
 
+    def get_serializable(self):
+        """Gets the session."""
+        session_dict = {}
+        session_dict["team"] = self.team
+        return session_dict
+
     def play(self, board: chess.Board):
         """Plays a move."""
         # Set the team to the computer's team
         board.turn = self.team
 
-        move = self.engine.play(board=board,
-                                limit=chess.engine.Limit(time=0.1))
+        move = self.__engine.play(board=board,
+                                  limit=chess.engine.Limit(time=0.1))
 
         if move in board.legal_moves:
             board.push_san(move)
