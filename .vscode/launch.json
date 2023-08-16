@@ -16,6 +16,8 @@
             "name": ".Net: WebAPI",
             "type": "dotnet",
             "request": "launch",
+            "debugServer": 4711,
+            "projectPath": "${workspaceFolder}/ChessAPI/chessapi.csproj"
         },
         {
             "type": "chrome",

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "cFbFtjuL3fcj2mFPeg4uOoXgiqufzqOOK2EsIDoWSgve3ok2L7YNIynDmTtoKAhRdqDrxq10aOwA3EdhJ+b6/g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ttred\\Documents\\Programming\\ChessApplication\\chessapi\\ChessAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ttred\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\ttred\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\ttred\\.nuget\\packages\\stockfish.net\\1.0.7\\stockfish.net.1.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}

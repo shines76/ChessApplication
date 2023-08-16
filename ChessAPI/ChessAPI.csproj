@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+<ItemGroup>
+    <ProjectReference Include="../ChessStockfish/ChessStockfish.csproj" />
+</ItemGroup>
+<ItemGroup>
+  <PackageReference Include="Stockfish.NET" Version="1.0.7" />
+</ItemGroup>
+</Project>
