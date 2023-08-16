@@ -1,17 +1,156 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Chess Web Application</title>
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <script src="js/index.js"></script>
+<head>
+    <title>Chess Web Application</title>
+    <script src="js/index.js"></script>
+    <style>
+        .headers {
 
-    </head>
+            padding-left: 10px;
+        }
 
-    <body>
-        <button onclick="start_game()">Play</button>
-        <button onclick="move_piece()">Move</button>
-    </body>
+        .headers span {
 
-    <span id="output"></span>
+            padding-right: 1.75rem;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Welcome to chess!</h1>
+
+    <button onclick="pythondata = onClickPlay()">Play</button>
+    <span>Enter move:</span>
+    <input id="moveForm">
+    <button onclick="move_piece()">Move</button>
+    <div>
+        <span>this is the data returned from the first move of the chess game (default team is white)</span>
+    </div>
+
+    <div>
+
+        <p id="output"></p>
+
+    </div>
+
+    <div style="padding-top: 5rem;">
+
+        <p>This is a chess board</p>
+
+        <div class="board">
+            <div class="headers">
+                <span>a</span>
+                <span>b</span>
+                <span>c</span>
+                <span>d</span>
+                <span>e</span>
+                <span>f</span>
+                <span>g</span>
+                <span>h</span>
+            </div>
+            <div class="row 1">
+                <span>1</span>
+                <div class="a" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="b" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="c" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="d" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="e" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="f" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="g" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="h" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+            </div>
+            <div class="row 2">
+                <span>2</span>
+                <div class="a" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="b" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="c" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="d" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="e" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="f" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="g" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="h" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+            </div>
+            <div class="row 3">
+                <span>3</span>
+                <div class="a" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="b" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="c" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="d" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="e" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="f" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="g" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="h" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+
+
+            </div>
+            <div class="row 4">
+                <span>4</span>
+                <div class="a" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="b" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="c" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="d" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="e" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="f" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="g" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="h" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+
+            </div>
+            <div class="row 5">
+                <span>5</span>
+                <div class="a" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="b" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="c" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="d" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="e" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="f" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="g" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="h" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+
+            </div>
+            <div class="row 6">
+                <span>6</span>
+                <div class="a" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="b" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="c" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="d" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="e" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="f" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="g" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="h" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+
+            </div>
+            <div class="row 7">
+                <span>7</span>
+                <div class="a" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="b" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="c" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="d" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="e" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="f" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="g" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="h" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+
+            </div>
+            <div class="row 8">
+                <span>8</span>
+                <div class="a" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="b" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="c" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="d" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="e" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="f" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="g" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+                <div class="h" style="display: inline-flex; width: 2rem; height: 2rem; border: 1px solid;"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
 </html>

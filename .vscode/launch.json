@@ -8,9 +8,14 @@
             "name": "Python: Start Flask",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/ChessAPI/chess_api.py",
+            "program": "${workspaceFolder}/ChessAPI(unstaged)/chess_api.py",
             "console": "externalTerminal",
             "justMyCode": true
+        },
+        {
+            "name": ".Net: WebAPI",
+            "type": "dotnet",
+            "request": "launch",
         },
         {
             "type": "chrome",
@@ -27,6 +32,6 @@
                 "Python: Start Flask",
                 "Launch Chrome against live server"
             ]
-        }
+        },
     ]
 }
